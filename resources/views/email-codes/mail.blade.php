@@ -7,7 +7,9 @@
 {{ $code }}
 @endcomponent
 
-Thanks!
+@component('mail::subcopy')
+This message was sent automatically, do not reply to it.
+@endcomponent
 
-[{{ config('app.url') }}]({{ config('app.name') }})
+Thanks! Your [{{ config('app.name') }}]({{ config('app.url') }})
 @endcomponent
