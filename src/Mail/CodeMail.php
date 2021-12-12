@@ -30,15 +30,21 @@ class CodeMail extends Mailable
 
     private function setContent(bool $plaintext): self
     {
+        $code = preg_replace(
+            '/^(\d{3})(\d{3})$/',
+            '$1 $2',
+            $this->message->code()
+        );
+
         if ($plaintext) {
             return $this->html(vsprintf('%s: %s', [
                 'text' => __('email-codes.your_code_is'),
-                'code' => $this->message->code(),
+                'code' => $code,
             ]));
         }
 
         return $this->markdown('email-codes.mail', [
-            'code' => $this->message->code(),
+            'code' => $code,
         ]);
     }
 }
