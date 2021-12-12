@@ -1,13 +1,13 @@
 <?php /* @var \Papalapa\Laravel\EmailCodes\Models\EmailCode $emailCode */ ?>
 
 @component('mail::message')
-    {{ __('email-codes.your_code_is') }}
+{{ __('email-codes.your_code_is') }}
 
-    @component('mail::button', ['url' => $url])
-        View Order
-    @endcomponent
+@component('mail::button', ['url' => $url])
+    View Order
+@endcomponent
 
-    Thanks!
+Thanks!
 
-    {{ config('app.name') }}
+{{ config('app.name') }}
 @endcomponent
