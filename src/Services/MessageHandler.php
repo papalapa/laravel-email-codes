@@ -21,7 +21,7 @@ final class MessageHandler
     {
         $code = $this->codeCreator->create($email);
 
-        return $this->send($email, $code);
+        return $this->send($email, $code->code);
     }
 
     private function send(Email $email, string $code): EmailMessage
