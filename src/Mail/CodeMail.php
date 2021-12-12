@@ -31,7 +31,7 @@ class CodeMail extends Mailable
     private function setContent(bool $plaintext): self
     {
         if ($plaintext) {
-            return $this->text(vsprintf('%s: %s', [
+            return $this->html(vsprintf('%s: %s', [
                 'text' => __('email-codes.your_code_is'),
                 'code' => $this->message->code(),
             ]));
