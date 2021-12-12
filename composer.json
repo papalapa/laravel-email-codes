@@ -1,0 +1,50 @@
+{
+  "name": "papalapa/laravel-email-codes",
+  "description": "Generate, Send and Check Email codes",
+  "keywords": [
+    "Token verification"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Dmitriy K.",
+      "email": "dmitriy.kim@mail.ru"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true
+  },
+  "require": {
+    "php": "^8.0",
+    "ext-pdo": "*",
+    "laravel/framework": "^8.75"
+  },
+  "suggest": {
+    "laravel/framework": ""
+  },
+  "autoload": {
+    "classmap": [
+    ],
+    "psr-4": {
+      "Papalapa\\Laravel\\EmailCodes\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Papalapa\\Laravel\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Papalapa\\Laravel\\EmailCodes\\EmailCodeServiceProvider"
+      ]
+    }
+  },
+  "require-dev": {
+    "fakerphp/faker": "^1.13"
+  }
+}
