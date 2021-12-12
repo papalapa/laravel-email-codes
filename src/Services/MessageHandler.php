@@ -32,14 +32,14 @@ final class MessageHandler
         return $message;
     }
 
-    public function validateCode(Email $phoneNumber, string $code): bool
+    public function validateCode(Email $email, string $code): bool
     {
-        return $this->codeChecker->validate($phoneNumber, $code);
+        return $this->codeChecker->validate($email, $code);
     }
 
-    public function generateToken(Email $phoneNumber): string
+    public function generateToken(Email $email): string
     {
-        return $this->tokenGenerator->generate($phoneNumber);
+        return $this->tokenGenerator->generate($email);
     }
 
     public function validateToken(string $data): Email

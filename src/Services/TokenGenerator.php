@@ -16,9 +16,9 @@ final class TokenGenerator
     {
     }
 
-    public function generate(Email $phoneNumber): string
+    public function generate(Email $email): string
     {
-        $token = CodeToken::create($phoneNumber, $this->lifetime);
+        $token = CodeToken::create($email, $this->lifetime);
 
         return $this->encrypter->encrypt($token);
     }
