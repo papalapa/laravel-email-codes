@@ -17,22 +17,22 @@ final class EmailCodeServiceProvider extends ServiceProvider
     {
         $this->registerPublishable();
 
-        $this->mergeConfigFrom(__DIR__ . '/../config/email-codes.php', 'email-code');
+        $this->mergeConfigFrom(__DIR__ . '/../config/email-codes.php', 'email-codes');
 
         $this->app->when(CodeGenerator::class)
-            ->needs('$size')->give(config('email-code.code_size'));
+            ->needs('$size')->give(config('email-codes.code_size'));
 
         $this->app->when(CodeValidator::class)
-            ->needs('$lifetime')->give(config('email-code.code_lifetime'));
+            ->needs('$lifetime')->give(config('email-codes.code_lifetime'));
 
         $this->app->when(TokenGenerator::class)
-            ->needs('$lifetime')->give(config('email-code.token_lifetime'));
+            ->needs('$lifetime')->give(config('email-codes.token_lifetime'));
 
         $this->app->when(GatewaySender::class)
-            ->needs('$connection')->give(config('email-code.queue_connection'));
+            ->needs('$connection')->give(config('email-codes.queue_connection'));
 
         $this->app->when(ThrottleRequests::class)
-            ->needs('$limit')->give(config('email-code.throttling_limit'));
+            ->needs('$limit')->give(config('email-codes.throttling_limit'));
     }
 
     protected function registerPublishable(): void
@@ -58,7 +58,7 @@ final class EmailCodeServiceProvider extends ServiceProvider
 
     public function register(): void
     {
-        $sender = config('email-code.fake_send') ? LogSender::class : GatewaySender::class;
+        $sender = config('email-codes.fake_send') ? LogSender::class : GatewaySender::class;
         $this->app->bind(SenderContract::class, $sender);
     }
 }
