@@ -11,5 +11,7 @@
 This message was sent automatically, do not reply to it.
 @endcomponent
 
-Thanks! Your [{{ config('app.name') }}]({{ config('app.url') }})
+Thanks!
+
+Your [{{ config('app.name') }}]({{ config('app.url') }})
 @endcomponent

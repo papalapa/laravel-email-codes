@@ -21,11 +21,13 @@ class CodeMail extends Mailable
         $address = (string)config('email-codes.address');
         $name = (string)config('email-codes.name');
         $plaintext = (bool)config('email-codes.plaintext');
+        $subject = (string)__(config('email-codes.subject', 'email-codes.code_description'));
 
         return $this
             ->from($address, $name)
             ->to($this->message->email()->email())
-            ->setContent($plaintext);
+            ->setContent($plaintext)
+            ->subject($subject);
     }
 
     private function setContent(bool $plaintext): self
